@@ -7,6 +7,8 @@
         <title>Dorian Weather Dashboard</title>
         <!--BOOTSTRAP-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!--FONT AWESOME-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!--CSS-->
         <link rel="stylesheet" type="text/css" href="Assets/style.css">
         
@@ -14,12 +16,11 @@
 
     <body>
 
-         <!--Header Div-->
-         <div class="header-fluid">
+        <!--Header Div-->
+        <div class="header-fluid">
 
-                 <h1>Dorian Y Weather Dashboard Header</h1>
+            <h1>Dorian Y Weather Dashboard Header</h1>
                  
-
         </div>
              
         
@@ -31,20 +32,37 @@
                 
                 <!--Search for City Col-->
                 <div class ="col-3">
-                    <h3>Search for City col</h3>
+
+                    <h3>Search for City:</h3>
+                    <br>
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <div id="searchDiv">
+                        **Search Results Div
+                    </div>
+
                 </div>
                 
                 <!--Main City Col-->
                 <div class ="col-9">
                     
                     <!--Target City Row-->
-                    <div class ="row">
-                        <h3>Target City row</h3>
+                    <div class ="row" id="resultDiv">
+
+                        <h3>Result City Div</h3>
+
                     </div>
                     
                     <!--5 Day Forecast Row-->
                     <div class ="row">
-                        <h3>Forecast Row</h3>  
+
+                        <h2>Your 5 Day Forecast</h2>
+                      
+                        <div id="forecastDiv">
+
+                            **5 Day Forecast Div
+
+                        </div>
                     </div>
 
                 </div>
