@@ -1,53 +1,38 @@
-$(document).ready(function () {
-
-
-//By City Name
-console.log("api.openweathermap.org/data/2.5/weather?q={city name}&appid=3c751c9c1e17ba49b5f5e5b15463bf0a")
-
-
-//VARIABLES
-var urlBase ="http://api.openweathermap.org/data/2.5/weather?q="
-var api ="&appid=3c751c9c1e17ba49b5f5e5b15463bf0a&units=metric"
-
-
-
-
-//SUBMIT BUTTON 
+// SUBMIT BUTTON 
 
 $('#submitButton').on('click', function () {
-    showWeather();
+    showCurrentWeather();
     searchHistory();
     showForecast();
 });
 
 
-//SHOW WEATHER
+// SHOW CURRENT WEATHER FUNCTION
 
-function showWeather() {
+function showCurrentWeather() {
     var textInput = $("#searchBar").val().toUpperCase();
     $.ajax({
         type: "POST",
-        url: urlBase + textInput + api,
+        url: "http://api.openweathermap.org/data/2.5/weather?q=" + textInput + "&appid=3c751c9c1e17ba49b5f5e5b15463bf0a&units=metric",
         dataType: "json",
         success: function (result, status, xhr) {
-            var table = $("<table><tr><th>" + result["name"] + "</th></tr>");
-
-            table.append("<tr><td>Current Temperature:</td><td>" + result["main"]["temp"] + "°C</td></tr>");
-            table.append("<tr><td>Humidity:</td><td>" + result["main"]["humidity"] + "</td></tr>");
-            table.append("<tr><td>Wind Speed:</td><td>" + result["wind"]["speed"] + "</td></tr>");
-            table.append("<tr><td>UV Index:</td><td>" + result["wind"]["speed"] + "</td></tr>");
-
-            $("#resultDiv").html(table);
+            
+            var currentWeatherTable = $("<table><tr><th><h2>" + result["name"] + "</h2></th></tr>");
+            currentWeatherTable.append("<tr><td>Current Temperature:</td><td>" + result["main"]["temp"] + "°C</td></tr>");
+            currentWeatherTable.append("<tr><td>Humidity:</td><td>" + result["main"]["humidity"] + "%</td></tr>");
+            currentWeatherTable.append("<tr><td>Wind Speed:</td><td>" + result["wind"]["speed"] + "mph</td></tr>");
+            currentWeatherTable.append("<tr><td>UV Index:</td><td>" + result["wind"]["speed"] + "</td></tr>");
+            $("#resultDiv").html(currentWeatherTable);
         },
         error: function (xhr, status, error) {
-            alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+            alert("That is not a valid city name!")
         }
     });
 
 }
 
 
-//ADD TO SEARCH HISTORY
+// ADD TO SEARCH HISTORY FUNCTION
 
 function searchHistory() {
     var textInput = $("#searchBar").val().toUpperCase();
@@ -58,17 +43,56 @@ function searchHistory() {
 }
 
 
-
-
-//5 DAY FORECAST
+// 5 DAY FORECAST FUNCTION
+// (DAYS 1-5 INCLUDED IN FUNCTION BELOW)
 
 function showForecast() {
     var textInput = $("#searchBar").val().toUpperCase();
-    var par = $("<p></p>").text(textInput); 
-    console.log(textInput);
-    $("#forecastDiv").append(par);
-    return;
+    $.ajax({
+        type: "POST",
+        url: "http://api.openweathermap.org/data/2.5/forecast?q=" + textInput + "&appid=3c751c9c1e17ba49b5f5e5b15463bf0a&units=metric",
+        dataType: "json",
+        success: function (result, status, xhr) {
+
+            //DAY 1
+            var forecastTable = $("<table><tr><th>" + result["list"][0]["dt_txt"] +"</th></tr>");
+            forecastTable.append("<tr><td> " + "<img id='icon' src='http://openweathermap.org/img/w/" + result["list"][0]["weather"][0]["icon"] + ".png' alt='weather icon'></img></td></tr>");
+            forecastTable.append("<tr><td>Temp: " + result["list"][0]["main"]["temp"] + "°C</td></tr>");
+            forecastTable.append("<tr><td>Humidity: " + result["list"][0]["main"]["humidity"] + "%</td></tr>");
+            $("#day1").html(forecastTable);
+
+            //DAY 2
+            var forecastTable = $("<table><tr><th>" + result["list"][8]["dt_txt"] +"</th></tr>");
+            forecastTable.append("<tr><td> " + "<img id='icon' src='http://openweathermap.org/img/w/" + result["list"][8]["weather"][0]["icon"] + ".png' alt='weather icon'></img></td></tr>");
+            forecastTable.append("<tr><td>Temp: " + result["list"][8]["main"]["temp"] + "°C</td></tr>");
+            forecastTable.append("<tr><td>Humidity: " + result["list"][8]["main"]["humidity"] + "%</td></tr>");
+            $("#day2").html(forecastTable);
+
+            //DAY 3
+            var forecastTable = $("<table><tr><th>" + result["list"][16]["dt_txt"] +"</th></tr>");
+            forecastTable.append("<tr><td> " + "<img id='icon' src='http://openweathermap.org/img/w/" + result["list"][16]["weather"][0]["icon"] + ".png' alt='weather icon'></img></td></tr>");
+            forecastTable.append("<tr><td>Temp: " + result["list"][16]["main"]["temp"] + "°C</td></tr>");
+            forecastTable.append("<tr><td>Humidity: " + result["list"][16]["main"]["humidity"] + "%</td></tr>");
+            $("#day3").html(forecastTable);
+
+            //DAY 4
+            var forecastTable = $("<table><tr><th>" + result["list"][24]["dt_txt"] +"</th></tr>");
+            forecastTable.append("<tr><td> " + "<img id='icon' src='http://openweathermap.org/img/w/" + result["list"][24]["weather"][0]["icon"] + ".png' alt='weather icon'></img></td></tr>");
+            forecastTable.append("<tr><td>Temp: " + result["list"][24]["main"]["temp"] + "°C</td></tr>");
+            forecastTable.append("<tr><td>Humidity: " + result["list"][24]["main"]["humidity"] + "%</td></tr>");
+            $("#day4").html(forecastTable);
+
+            //DAY 5
+            var forecastTable = $("<table><tr><th>" + result["list"][32]["dt_txt"] +"</th></tr>");
+            forecastTable.append("<tr><td> " + "<img id='icon' src='http://openweathermap.org/img/w/" + result["list"][32]["weather"][0]["icon"] + ".png' alt='weather icon'></img></td></tr>");
+            forecastTable.append("<tr><td>Temp: " + result["list"][32]["main"]["temp"] + "°C</td></tr>");
+            forecastTable.append("<tr><td>Humidity: " + result["list"][32]["main"]["humidity"] + "%</td></tr>");
+            $("#day5").html(forecastTable);
+
+        },
+        error: function (xhr, status, error) {
+            alert("Please enter a valid city name")
+        }
+    });
+
 }
-
-
-});
