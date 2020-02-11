@@ -45,7 +45,8 @@ OpenWeather API was used to retrieve weather data for cities.
 
 > ## Credits
 
--OpenWeather API
+- OpenWeather API
+
 https://openweathermap.org/api
 
 
