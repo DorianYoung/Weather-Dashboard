@@ -25,7 +25,7 @@ function showCurrentWeather() {
             $("#resultDiv").html(currentWeatherTable);
         },
         error: function (xhr, status, error) {
-            alert("Sorry, youve entered an invalid city name!")
+            alert("Sorry, youve entered an invalid city!")
         }
     });
 
@@ -36,7 +36,7 @@ function showCurrentWeather() {
 
 function searchHistory() {
     var textInput = $("#searchBar").val().toUpperCase();
-    var par = $("<p></p>").text(textInput); 
+    var par = $("<p></p>").text(textInput); //This is the line to make search history a clickable link
     console.log(textInput);
     $("#searchDiv").append(par);
     return;
