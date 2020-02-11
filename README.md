@@ -4,7 +4,7 @@
 
 
 
-![Dorian Young]('https://raw.githubusercontent.com/DorianYoung/Weather-Dashboard/master/Assets/weatherDashSC.png')
+![Dorian Young](https://raw.githubusercontent.com/DorianYoung/Weather-Dashboard/master/Assets/weatherDashSC.png)
 https://github.com/DorianYoung
 
 <h2>DORIAN Y Weather Dashboard</h2>
