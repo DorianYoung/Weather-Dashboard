@@ -10,8 +10,9 @@ https://github.com/DorianYoung
 <h2>DORIAN Y Weather Dashboard</h2>
 
 # Weather Dashboard
-Weather dashboard application that runs in the browser and features dynamically updated HTML and CSS.
-I used the OpenWeather API to retrieve weather data for cities.
+Weather dashboard application that displays the current & 5 day weather forecast for searched city. This application runs in the browser and features dynamically updated HTML and CSS.
+
+OpenWeather API was used to retrieve weather data for cities.
 
 
 >  ## **Table of Contents** :notebook:
@@ -44,6 +45,7 @@ I used the OpenWeather API to retrieve weather data for cities.
 
 > ## Credits
 
+-OpenWeather API
 https://openweathermap.org/api
 
 
