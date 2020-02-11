@@ -59,10 +59,10 @@ Not Available
 
 > ## Badges
 
-![HTML](https://img.shields.io/badge/HTML-53%25-red)
+![HTML](https://img.shields.io/badge/HTML-33%25-red)
 
-![CSS](https://img.shields.io/badge/CSS-6%25-purple)
+![CSS](https://img.shields.io/badge/CSS-3%25-purple)
 
-![Javascript](https://img.shields.io/badge/Javascript-41%25-yellow)
+![Javascript](https://img.shields.io/badge/Javascript-63%25-yellow)
 
 ![Dorian](https://img.shields.io/badge/Dorian-100%25-green)
