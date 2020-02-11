@@ -13,7 +13,7 @@ function showCurrentWeather() {
     var textInput = $("#searchBar").val().toUpperCase();
     $.ajax({
         type: "POST",
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + textInput + "&appid=3c751c9c1e17ba49b5f5e5b15463bf0a&units=metric",
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + textInput + "&appid=3c751c9c1e17ba49b5f5e5b15463bf0a&units=metric",
         dataType: "json",
         success: function (result, status, xhr) {
             
@@ -50,7 +50,7 @@ function showForecast() {
     var textInput = $("#searchBar").val().toUpperCase();
     $.ajax({
         type: "POST",
-        url: "http://api.openweathermap.org/data/2.5/forecast?q=" + textInput + "&appid=3c751c9c1e17ba49b5f5e5b15463bf0a&units=metric",
+        url: "https://api.openweathermap.org/data/2.5/forecast?q=" + textInput + "&appid=3c751c9c1e17ba49b5f5e5b15463bf0a&units=metric",
         dataType: "json",
         success: function (result, status, xhr) {
 
