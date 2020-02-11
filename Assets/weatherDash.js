@@ -25,7 +25,7 @@ function showCurrentWeather() {
             $("#resultDiv").html(currentWeatherTable);
         },
         error: function (xhr, status, error) {
-            alert("That is not a valid city name!")
+            alert("Sorry, youve entered an invalid city name!")
         }
     });
 
@@ -43,8 +43,7 @@ function searchHistory() {
 }
 
 
-// 5 DAY FORECAST FUNCTION
-// (DAYS 1-5 INCLUDED IN FUNCTION BELOW)
+// 5 DAY (days 1-5) FORECAST FUNCTION
 
 function showForecast() {
     var textInput = $("#searchBar").val().toUpperCase();
